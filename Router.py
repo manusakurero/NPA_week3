@@ -11,7 +11,7 @@ class Router:
         total_interfaces = ''
         for i in self.interfaces:
             total_interfaces += i+'\n'
-        show_infsv = 'Show interfaces of ' + self.hostname + '\nR3 has ' + str(len(self.interfaces)) +' Interfaces\n'+ total_interfaces
+        show_infsv = 'Show interfaces of ' + self.hostname + '\n'+self.hostname+' has ' + str(len(self.interfaces)) +' Interfaces\n'+ total_interfaces
         return show_infsv
     def connect(self, interface1, router, interface2):
         self.connection.append([interface1, router.hostname, interface2])
