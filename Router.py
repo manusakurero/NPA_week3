@@ -4,12 +4,14 @@ class Router:
         self.model = model
         self.hostname = hostname
         self.interfaces = []
-    def add_inf(self,interface):
+    def add_inf(self, interface):
         self.interfaces.append(interface)
     def show_infs(self):
+        total_interfaces = ''
         for i in self.interfaces:
-            #show_inf = 'Show interfaces of ' + self.hostname + '\n' + self.interfaces.count
-            print(i)
+            total_interfaces += i+'\n'
+        show_infsv = 'Show interfaces of ' + self.hostname + '\nR3 has ' + str(len(self.interfaces)) +' Interfaces\n'+ total_interfaces
+        return show_infsv
 
 r1 = Router('Cisco', 'IOSv', 'R1')
 r2 = Router('Cisco', '3745', 'R2')
