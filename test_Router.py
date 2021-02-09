@@ -30,6 +30,7 @@ class TestRouter(unittest.TestCase):
         self.assertIn('Gigabit 0/1', r1.show_infs())
         self.assertIn('Gigabit 0/2', r1.show_infs())
         self.assertEqual(len(r1.interfaces), 2)
+        self.assertEqual('Show interfaces of R1\nR1 has 2 Interfaces\nGigabit 0/1\nGigabit 0/2\n', r1.show_infs())
     def test_showinterfaces2(self):
         r2 = Router('Cisco', '3745', 'R2')
         r2.add_inf('Gigabit 0/1')
@@ -39,11 +40,12 @@ class TestRouter(unittest.TestCase):
         self.assertIn('Gigabit 0/2', r2.show_infs())
         self.assertIn('Gigabit 0/3', r2.show_infs())
         self.assertEqual(len(r2.interfaces), 3)
+        self.assertEqual('Show interfaces of R2\nR2 has 3 Interfaces\nGigabit 0/1\nGigabit 0/2\nGigabit 0/3\n', r2.show_infs())
     def test_showinterfaces3(self):
         r3 = Router('Juniper', 'MX5', 'R3')
         r3.add_inf('Gigabit 0/1')
         self.assertIn('Gigabit 0/1',  r3.show_infs())
-        self.assertEqual(len(r3.interfaces), 1)
+        self.assertEqual('Show interfaces of R3\nR3 has 1 Interfaces\nGigabit 0/1\n', r3.show_infs())
     def test_connect(self):
         r1 = Router('Cisco', 'IOSv', 'R1')
         r2 = Router('Cisco', '3745', 'R2')
